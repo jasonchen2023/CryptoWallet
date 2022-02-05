@@ -1,0 +1,300 @@
+======================================================================
+Test Run at:  2021-06-01 15:20:15.395789
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 15:20:15.395835
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 38868
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 0000f32de6dfa0fc0c859eed29d873d5167c1786004a6aa3c640ecfbb8c7df99
+Timestamp: 2021-06-01 15:20:15.395867
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 13203
+Transactions: []
+Prev hash: 0000f32de6dfa0fc0c859eed29d873d5167c1786004a6aa3c640ecfbb8c7df99
+Curr hash: 0000087510282167a64f1f0e3eb2e75905532dbaf3fd6bf4db918e0db94c9e84
+Timestamp: 2021-06-01 15:20:15.599724
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 113137
+Transactions: []
+Prev hash: 0000087510282167a64f1f0e3eb2e75905532dbaf3fd6bf4db918e0db94c9e84
+Curr hash: 0000394d13c2f0843000d63c03e41f7842741996938be1037ccc8d731271f23f
+Timestamp: 2021-06-01 15:20:15.650373
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 7250
+Transactions: []
+Prev hash: 0000394d13c2f0843000d63c03e41f7842741996938be1037ccc8d731271f23f
+Curr hash: 0000d1a9d08d45af235400d6f95385031b7b9a2471c92b14afb1f261154511f2
+Timestamp: 2021-06-01 15:20:16.101603
+
+-----BLOCKCHAIN-----
+Blockchain:  [<block.Block object at 0x7fadcd76f0d0>, <block.Block object at 0x7fadce959070>, <block.Block object at 0x7fadce961430>, <block.Block object at 0x7fadce961340>, <block.Block object at 0x7fadce961400>]
+======================================================================
+
+
+
+
+
+
+======================================================================
+Test Run at:  2021-06-01 15:22:04.804229
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 15:22:04.804267
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 15986
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 0000aec443287a702a0a4de8775d5e4bb6764bdd6c3e349740274441daa8ba23
+Timestamp: 2021-06-01 15:22:04.804295
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 8002
+Transactions: []
+Prev hash: 0000aec443287a702a0a4de8775d5e4bb6764bdd6c3e349740274441daa8ba23
+Curr hash: 0000cb621aa763930d7cb07708d1d38c433b6a3861ac4ed453accdf529c8c263
+Timestamp: 2021-06-01 15:22:04.886042
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 4400
+Transactions: []
+Prev hash: 0000cb621aa763930d7cb07708d1d38c433b6a3861ac4ed453accdf529c8c263
+Curr hash: 00000d888156efb67605dd06b1fa5fc8108393e746d69ca2bb1009e79efe8b3a
+Timestamp: 2021-06-01 15:22:04.918747
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 50129
+Transactions: []
+Prev hash: 00000d888156efb67605dd06b1fa5fc8108393e746d69ca2bb1009e79efe8b3a
+Curr hash: 0000fa3bfbc65c90aac8b8bda4b23e79d2011faaa98fccd3026c7f451fe504eb
+Timestamp: 2021-06-01 15:22:04.936091
+
+-----BLOCKCHAIN-----
+======================================================================
+Test Run at:  2021-06-01 15:22:48.210017
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 15:22:48.210064
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 87961
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00008a23d1f9b08f8fbbfccc7069a5029ed100e2be116b9656bd88b32a448185
+Timestamp: 2021-06-01 15:22:48.210098
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 127998
+Transactions: []
+Prev hash: 00008a23d1f9b08f8fbbfccc7069a5029ed100e2be116b9656bd88b32a448185
+Curr hash: 0000037605741735372e28bf82a641c678a7bd90f047d9084b1ec9505c200939
+Timestamp: 2021-06-01 15:22:48.673375
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 63967
+Transactions: []
+Prev hash: 0000037605741735372e28bf82a641c678a7bd90f047d9084b1ec9505c200939
+Curr hash: 00003007d73bfac47c4ca4b667c01749c04ad0c0c82d7d6b4a02e61206a4251b
+Timestamp: 2021-06-01 15:22:49.163719
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 64224
+Transactions: []
+Prev hash: 00003007d73bfac47c4ca4b667c01749c04ad0c0c82d7d6b4a02e61206a4251b
+Curr hash: 0000339bdc8e9cd57ba149b5ea0c4c821a1d913a2c71d1761ab536e5687806dd
+Timestamp: 2021-06-01 15:22:49.405098
+
+-----BLOCKCHAIN-----
+======================================================================
+Test Run at:  2021-06-01 15:54:52.989187
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 15:54:52.989246
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 2853
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 000012a05a41354660704947d84b8deca09f2418b25a11f02f524988bc32317f
+Timestamp: 2021-06-01 15:54:52.989280
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 73246
+Transactions: []
+Prev hash: 000012a05a41354660704947d84b8deca09f2418b25a11f02f524988bc32317f
+Curr hash: 0000b3b241f11eefa15c44001d48eac16d9c0eeea7c967f44f54323bb3d0388e
+Timestamp: 2021-06-01 15:54:53.005137
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 66964
+Transactions: []
+Prev hash: 0000b3b241f11eefa15c44001d48eac16d9c0eeea7c967f44f54323bb3d0388e
+Curr hash: 000076066e20d475a44b949afb9a2441333f4f0a49a2ae67fe95dce2774d44dc
+Timestamp: 2021-06-01 15:54:53.293253
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 6230
+Transactions: []
+Prev hash: 000076066e20d475a44b949afb9a2441333f4f0a49a2ae67fe95dce2774d44dc
+Curr hash: 000077dccaa55d58ff26a87875351f2da8e204fe1b2fd173e626924636959f8d
+Timestamp: 2021-06-01 15:54:53.572092
+
+-----BLOCKCHAIN-----
+======================================================================
+Test Run at:  2021-06-01 15:55:14.688322
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 15:55:14.688360
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 40467
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 000027916e53ce800d96bf416a1526d4888d72aa51d60471e35defa753c3ac8b
+Timestamp: 2021-06-01 15:55:14.688387
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 107884
+Transactions: []
+Prev hash: 000027916e53ce800d96bf416a1526d4888d72aa51d60471e35defa753c3ac8b
+Curr hash: 00002c8f2127f9b6866ce5133a8858a24ee44c62babcc03abcea748cb06847cc
+Timestamp: 2021-06-01 15:55:14.901604
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 3616
+Transactions: []
+Prev hash: 00002c8f2127f9b6866ce5133a8858a24ee44c62babcc03abcea748cb06847cc
+Curr hash: 000014dc22ab750b6d5864c3a9d2190710b56a073f18b6716e49ef0ebd381c72
+Timestamp: 2021-06-01 15:55:15.321763
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 83179
+Transactions: []
+Prev hash: 000014dc22ab750b6d5864c3a9d2190710b56a073f18b6716e49ef0ebd381c72
+Curr hash: 0000cd053c466021198dc5811b2982c27358c4795ace8b35496859b82d207f53
+Timestamp: 2021-06-01 15:55:15.335467
+
+-----BLOCKCHAIN-----
+Blockchain:  [<block.Block object at 0x7fe1ca87c0d0>, <block.Block object at 0x7fe1cab75af0>, <block.Block object at 0x7fe1cab75d30>, <block.Block object at 0x7fe1cab75d90>, <block.Block object at 0x7fe1cab75dc0>]
+======================================================================
+
+
+
+
+
+
+======================================================================
+Test Run at:  2021-06-01 16:08:33.812956
+======================================================================
+-----BLOCK 0-----
+Index: 0
+Nonce: 0
+Transactions: []
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-01 16:08:33.812994
+-----BLOCK 1 MINED-----
+Index: 1
+Nonce: 15319
+Transactions: 
+	Sender:Roxanne
+	Receiver:Willy
+	Amt:5
+	Sender:Brian
+	Receiver:Margyu
+	Amt:15
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 000089fc69cdbc0e2e97229fadb59ebe99833e051b610f131fe98add9da075a4
+Timestamp: 2021-06-01 16:08:33.813021
+-----BLOCK 2 MINED-----
+Index: 2
+Nonce: 9975
+Transactions: []
+Prev hash: 000089fc69cdbc0e2e97229fadb59ebe99833e051b610f131fe98add9da075a4
+Curr hash: 00003fa49e4eed9d0a53553621d33fba6ecb188986296af4d19603d2c1459efe
+Timestamp: 2021-06-01 16:08:33.891900
+-----BLOCK 3 MINED-----
+Index: 3
+Nonce: 39099
+Transactions: []
+Prev hash: 00003fa49e4eed9d0a53553621d33fba6ecb188986296af4d19603d2c1459efe
+Curr hash: 000074e63aa115c998de47fb43684d2ef2200155d93aeb80cfe9cfdc9f28c4b6
+Timestamp: 2021-06-01 16:08:33.930636
+-----BLOCK 4 MINED-----
+Index: 4
+Nonce: 130908
+Transactions: []
+Prev hash: 000074e63aa115c998de47fb43684d2ef2200155d93aeb80cfe9cfdc9f28c4b6
+Curr hash: 0000efa5eaf3c51edb1a20a90595998d92c799c85366c8798e054e7e0dd3c552
+Timestamp: 2021-06-01 16:08:34.080144
+
+-----BLOCKCHAIN-----
+Blockchain:  [<block.Block object at 0x7fca3137c0d0>, <block.Block object at 0x7fca31475af0>, <block.Block object at 0x7fca31475d30>, <block.Block object at 0x7fca31475d90>, <block.Block object at 0x7fca31475dc0>]
+======================================================================
+
+
+
+
+
+

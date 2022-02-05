@@ -1,0 +1,182 @@
+Peer A (emily) output:
+
+Python3 peer.py 60009 emily 60005
+What is your request? [send/remove/broadcast/corrupt/add block] jason joined network
+bob joined network
+add block
+last hash:  00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+What is your request? [send/remove/broadcast/corrupt/add block] add block
+last hash:  0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+What is your request? [send/remove/broadcast/corrupt/add block] broadcast
+What would you like to broadcast? [block/blockchain] blockchain
+What is your request? [send/remove/broadcast/corrupt/add block] add block
+last hash:  00009a21249d89ec3363a55566c139f034cf05df4047fd761b3e50dc8687f754
+What is your request? [send/remove/broadcast/corrupt/add block] corrupt block
+What is your request? [send/remove/broadcast/add block] received block from:  jason
+block index:  3
+Wrong block index at block 3.
+Wrong previous hash at block 3.
+Wrong hash at block 3.
+Wrong block index at block 4.
+Index: 0
+Nonce: 0
+Transactions: [<transaction.Transaction object at 0x104fe7b90>]
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-03 18:05:09.409392
+Index: 1
+Nonce: 31330
+Transactions: [<transaction.Transaction object at 0x104fe7b90>]
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Timestamp: 2021-06-03 18:05:18.101881
+Index: 2
+Nonce: 20359
+Transactions: [<transaction.Transaction object at 0x104ce3e50>]
+Prev hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Curr hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Timestamp: 2021-06-03 18:05:20.870387
+Index: 3
+Nonce: 94818
+Transactions: [<transaction.Transaction object at 0x104fe7f10>]
+Prev hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Curr hash: 00009a21249d89ec3363a55566c139f034cf05df4047fd761b3e50dc8687f754
+Timestamp: 2021-06-03 18:05:32.682028
+Index: 3
+Nonce: 221590
+Transactions: [<transaction.Transaction object at 0x104ffe350>]
+Prev hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Curr hash: 00005c07d97dc930065dafd50d2bbb365d0d3f4877cfa2637eba7e266bdaf87f
+Timestamp: 2021-06-03 18:05:50.571249
+block invalid, recomputing BC
+last hash:  block
+{'block': ['bob']}
+received blockchain from:  bob
+block index:  0
+block index:  1
+block index:  2
+block index:  3
+replacing chain
+Index: 0
+Nonce: 0
+Transactions: [<transaction.Transaction object at 0x104ffe7d0>]
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-03 18:05:09.409392
+Index: 1
+Nonce: 31330
+Transactions: [<transaction.Transaction object at 0x104ffe7d0>]
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Timestamp: 2021-06-03 18:05:18.101881
+Index: 2
+Nonce: 20359
+Transactions: [<transaction.Transaction object at 0x104ffeb10>]
+Prev hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Curr hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Timestamp: 2021-06-03 18:05:20.870387
+Index: 3
+Nonce: 221590
+Transactions: [<transaction.Transaction object at 0x104ffeb90>]
+Prev hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Curr hash: 00005c07d97dc930065dafd50d2bbb365d0d3f4877cfa2637eba7e266bdaf87f
+Timestamp: 2021-06-03 18:05:50.571249
+
+----------------------------
+Peer B (jason) output:
+----------------------------
+
+
+Python3 peer.py 60010 jason 60005
+What is your request? [send/remove/broadcast/corrupt/add block] emily joined network
+bob joined network
+received blockchain from:  emily
+block index:  0
+block index:  1
+block index:  2
+replacing chain
+Index: 0
+Nonce: 0
+Transactions: [<transaction.Transaction object at 0x10d52e110>]
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-03 18:05:09.409392
+Index: 1
+Nonce: 31330
+Transactions: [<transaction.Transaction object at 0x10d52e110>]
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Timestamp: 2021-06-03 18:05:18.101881
+Index: 2
+Nonce: 20359
+Transactions: [<transaction.Transaction object at 0x10d52e490>]
+Prev hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Curr hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Timestamp: 2021-06-03 18:05:20.870387
+add block
+last hash:  00005c07d97dc930065dafd50d2bbb365d0d3f4877cfa2637eba7e266bdaf87f
+What is your request? [send/remove/broadcast/corrupt/add block] broadcast
+What would you like to broadcast? [block/blockchain] block
+last hash:  00005c07d97dc930065dafd50d2bbb365d0d3f4877cfa2637eba7e266bdaf87f
+What is your request? [send/removrupt/add block]
+
+
+
+
+----------------------------
+Peer C (bob) output:
+----------------------------
+
+Jasons-MacBook-Pro-3:project-group3 jasonchen$ python3 peer.py 60011 bob 60005
+What is your request? [send/remove/broadcast/corrupt/add block] emily joined network
+jason joined network
+received blockchain from:  emily
+block index:  0
+block index:  1
+block index:  2
+replacing chain
+Index: 0
+Nonce: 0
+Transactions: [<transaction.Transaction object at 0x10c1c1250>]
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-03 18:05:09.409392
+Index: 1
+Nonce: 31330
+Transactions: [<transaction.Transaction object at 0x10c1c1250>]
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Timestamp: 2021-06-03 18:05:18.101881
+Index: 2
+Nonce: 20359
+Transactions: [<transaction.Transaction object at 0x10c1c15d0>]
+Prev hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Curr hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Timestamp: 2021-06-03 18:05:20.870387
+received block from:  jason
+block index:  3
+Index: 0
+Nonce: 0
+Transactions: [<transaction.Transaction object at 0x10c1c1250>]
+Prev hash: 0
+Curr hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Timestamp: 2021-06-03 18:05:09.409392
+Index: 1
+Nonce: 31330
+Transactions: [<transaction.Transaction object at 0x10c1c1250>]
+Prev hash: f48f5b134f161b5db2608c5517d1e21dcf061a7688e9e7dc6821008c89ad0292
+Curr hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Timestamp: 2021-06-03 18:05:18.101881
+Index: 2
+Nonce: 20359
+Transactions: [<transaction.Transaction object at 0x10c1c15d0>]
+Prev hash: 00009e5aaa6c49850152c90b6a55e66fd8ee2671d2ec6fe4c947a5901783255a
+Curr hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Timestamp: 2021-06-03 18:05:20.870387
+Index: 3
+Nonce: 221590
+Transactions: [<transaction.Transaction object at 0x10c1c1190>]
+Prev hash: 0000adf1eaa7944f2814543702bced0f4903b20271c8149bbb3234cd91fff7ce
+Curr hash: 00005c07d97dc930065dafd50d2bbb365d0d3f4877cfa2637eba7e266bdaf87f
+Timestamp: 2021-06-03 18:05:50.571249
+block valid, added to BC
