@@ -25,19 +25,6 @@ from Helper_classes import displayText
 import time
 
 
-# from blockchain import Blockchain
-# from block import Block
-# from transaction import Transaction
-
-# def exit_handler():
-#     while True:
-#         sys.stdout.write("remove")
-#         time.sleep(3)
-
-
-# atexit.register(exit_handler)
-
-
 # tracks a neighbors name, and socket
 class Neighbor:
     def __init__(self, name, connection_socket, n_thread):
@@ -81,19 +68,7 @@ class neighborThread(threading.Thread):
                         self.peer.tally_dict = {}
 
 
-                    
-                    # receive transfer from peer
-
-                    # elif message["type"] == "transfer":
-                            
-                    #         print("received transfer from: ", message["name"])
-                            
-                    #         amt = message["amt"]
-                    #         self.peer.balance += amt
-
-                    #         print("Received " + str(amt) + " from " + message["name"] + ". Your balance is: " + str(self.peer.balance))
-
-
+       
 
                     # receive block from peer
                     
@@ -330,96 +305,6 @@ class inputThread(threading.Thread):
                     exit()
                         
                     
-
-                # --------------- CODE FOR TESTING BLOCKCHAIN ------------------
-
-                # request = input("What is your request? [send/remove/broadcast/corrupt/add block] ")
-
-                
-                # while (request != "send" and request != "remove" and request != "add block" and request != "broadcast" and request != "corrupt"):
-                #     request = input("What is your request? [send/remove/broadcast/add block] ")
-
-
-                # if (request == "corrupt"):
-                #                         # testing: intentionally corrupt
-                #     self.peer.blockchain.last_block.index = 773
-                #     self.peer.blockchain.nonce = 33
-                #     self.peer.blockchain._pending_transactions = []
-
-                #     (valid, ind) = self.peer.blockchain.chain_validity(
-                #         self.peer.blockchain.full_chain)                    # testing: intentionally corrupt
-                #     self.peer.blockchain.recompute_chain_at_index(ind)
-
-                #     print("corrupting chain: ")
-                #     self.peer.blockchain.print_chain()
-
-
-                # if (request == "send"):
-
-                #     packet = input("What would you like to send? [blockchain/block]")
-
-                #     receiver = input("Who would you like to send to? [name] ")
-
-                #     if (receiver not in self.peer.neighbor_dict):
-                #         # receiver = input(message[0] + " is not in network. Please enter a different name: ")
-                #         pass
-
-                #     # send a blockchain to peer
-                #     elif (packet == "blockchain"):
-
-                #         self.peer.send_to_peer(receiver, pickle.dumps({
-                #             "type": "blockchain",
-                #             "name": self.peer.name,
-                #             "blockchain": self.peer.blockchain
-                #         }))
-
-                #     # send block to the peer
-                #     elif (packet == "block"):
-                
-                #         # trans = input("Enter your transaction")
-                #         # create_trans(sender_addr, sender_priv_key, receiver_addr, amount)
-
-                #         self.peer.send_to_peer(receiver, pickle.dumps({
-                #             "type": "block",
-                #             "name": self.peer.name,
-                #             "block": self.peer.blockchain.last_block
-                #         }))
-
-                #         print("last hash: ", self.peer.blockchain.last_block.hash)
-                
-
-                # elif (request == "broadcast"):
-
-                #     packet = input("What would you like to broadcast? [block/blockchain] ")
-
-                #     if (packet == "blockchain"):
-
-                #         self.peer.broadcast(pickle.dumps({
-                #             "type": "blockchain",
-                #             "name": self.peer.name,
-                #             "blockchain": self.peer.blockchain
-                #         }))
-
-                #     # send block to the peer
-                #     elif (packet == "block"):
-
-                #         self.peer.broadcast(pickle.dumps({
-                #             "type": "block",
-                #             "name": self.peer.name,
-                #             "block": self.peer.blockchain.last_block
-                #         }))
-
-                #         print("last hash: ", self.peer.blockchain.last_block.hash)
-
-                # elif (request == "add block"):
-
-                #     # blockA = Block(0, 0, 0, 0, 0)
-                #     # self.peer.blockchain.add_block(blockA)
-
-                #     self.peer.blockchain.create_trans("peerA", "private key", "peer b", 5)
-                #     block = self.peer.blockchain.mine()
-                #     print("last hash: ", self.peer.blockchain.last_block.hash)
-
              
 
 
