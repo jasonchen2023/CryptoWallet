@@ -1,29 +1,22 @@
 # Group3: 404 Error
-# 
 # CS60, Group Project
 # 
 # To compile and run Peer.py:
 #   Peer.py [peer_port] [peer_name] [tracker_port]
 # 
-# NOTE:
-# 
-# Messages may be printed out of order (bc printing from multiple threads)
-# 
-
+# NOTE: Messages may be printed out of order (bc printing from multiple threads)
 
 import atexit
 import sys
 import socket
 import pickle
 import threading
-
 import constants
 from block import Block
 from transaction import Transaction
 from blockchain import Blockchain
 from Helper_classes import displayText
 import time
-
 
 # tracks a neighbors name, and socket
 class Neighbor:
@@ -34,7 +27,6 @@ class Neighbor:
 
 # thread to receive packets from neighbors
 class neighborThread(threading.Thread):
-
     def __init__(self, peer, neighbor_socket):
         threading.Thread.__init__(self)
         self.peer = peer
@@ -57,7 +49,6 @@ class neighborThread(threading.Thread):
                         blockchain = message["blockchain"]
                         for block in blockchain._chain:
                             print("block index: ", block.index)
-                        # displayText("blockchain: ", message["blockchain"])
 
                         print("replacing chain")
                         self.peer.blockchain.replace_chain_simple(blockchain._chain)
@@ -71,19 +62,14 @@ class neighborThread(threading.Thread):
                     elif message["type"] == "block":
                         print("received block from: ", message["name"])
 
-                        # print("block index: ", message["block"].index)
-
                         # try to add new block to BC
                         new_block = message["block"]
                         self.peer.blockchain.full_chain.append(new_block)
                         (valid, ind) = self.peer.blockchain.chain_validity(
                             self.peer.blockchain.full_chain)
-
-                        # self.peer.blockchain.print_chain()
                         
                         if (valid):
                             print("block valid, added to BC")
-
                             b = False
                             total = 0
                             for t in new_block.transactions:
@@ -93,7 +79,6 @@ class neighborThread(threading.Thread):
                             if b:  
                                 self.peer.balance += total      
                                 print("Received " + str(total) + " from " + message["name"] + ". Your balance is: " + str(self.peer.balance))
-
                         else:
                             print("block invalid, recomputing BC")
                             self.peer.blockchain.recompute_chain_at_index(ind)
@@ -121,8 +106,6 @@ class neighborThread(threading.Thread):
                             self.peer.tally_dict[message["block"]] = []
                         
                         self.peer.tally_dict[message["block"]].append(message["name"])   # dictionary with last block has as key and list of peers as value
-     
-                        # once 
                         self.peer.neighbor_count += 1
 
                         if (self.peer.neighbor_count == len(self.peer.neighbor_dict.keys())):   
@@ -131,8 +114,7 @@ class neighborThread(threading.Thread):
                                 "type": "send blockchain",
                                 "name": self.peer.name
                             })
-                        
-                            self.peer.send_to_peer(message["name"], new_message)  
+                        self.peer.send_to_peer(message["name"], new_message)  
 
                     elif message["type"] == "send blockchain":
                         self.peer.send_to_peer(message["name"], pickle.dumps({
@@ -206,19 +188,15 @@ class inputThread(threading.Thread):
                 # withdraw money
                 if (request == "withdrawal"):
                     amt = input("How much would you like to withdraw? ")
-                    
                     if not entry_valid(amt):
                         continue
 
                     amt = float(amt)
-
                     while amt > self.peer.balance:
                         amt = float(input("ERROR: Your balance is " + str(self.peer.balance) + ". Please re-enter amount:  "))
-        
                         continue
 
                     self.peer.blockchain.create_trans("withdrawal", "private key", self.peer.name, amt)
-
                     self.peer.balance -= amt
 
                     print("Your balance is now: " + str(self.peer.balance))     
@@ -252,39 +230,30 @@ class inputThread(threading.Thread):
                             continue
 
                     self.peer.blockchain.create_trans(self.peer.name, "private key", recipient, amt)
-
                     self.peer.balance -= amt
 
                     print("Your balance is now: " + str(self.peer.balance))
-
                     print("To process transaction, enter 'mine'.")
                 
                 # peer exiting
                 elif (request == "exit"):
                     self.peer.send_to_tracker("remove")
                     print("Input thread exited")
-            
                     exit()
 
 # thread for processing messages sent by the tracker or neighbors (peers)
 class trackerThread(threading.Thread):
-
     def __init__(self, peer):
         threading.Thread.__init__(self)
         self.peer = peer
 
-        # helper function to execute the threads
-
     def run(self):
-
         self.peer.join_network()
-
         while True:
             message = pickle.loads(self.peer.tracker_socket.recv(1024))
 
             # must change name or port
             if (message["type"] == "change"):
-
                 # name invalid
                 if (message["field"] == "name"):
                     self.peer.name = input("Enter a different name: ")
@@ -293,7 +262,6 @@ class trackerThread(threading.Thread):
                 # port invalid
                 elif (message["field"] == "port"):
                     port_num = input("Enter a different port number: ")
-
                     while not is_digit(port_num):
                         port_num = input("Port number must be a number: ")
                     self.peer.peer_port = int(port_num)
@@ -318,11 +286,9 @@ class trackerThread(threading.Thread):
 
             # remove a peer from the dict
             elif (message["type"] == "remove"):
-
                 # exit out of this thread if we are requesting to be removed
                 if (message["name"] == self.peer.name):
                     self.peer.t_thread_exited = True
-
                     print("Tracker thread exited")
                     exit()
 
@@ -338,7 +304,6 @@ class trackerThread(threading.Thread):
                     print("In network:")
                     for peer in self.peer.neighbor_dict.keys():
                         print(peer)
-
 
 class Peer:
     def __init__(self, name, peer_port, tracker_port):
