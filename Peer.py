@@ -67,9 +67,6 @@ class neighborThread(threading.Thread):
 
                         self.peer.tally_dict = {}
 
-
-       
-
                     # receive block from peer
                     
                     elif message["type"] == "block":
@@ -92,17 +89,13 @@ class neighborThread(threading.Thread):
                             b = False
                             total = 0
                             for t in new_block.transactions:
-                                
                                 if (t.receiver_addr == self.peer.name):
                                     b = True
-                                    total += t.amount
-                                    
-                            
+                                    total += t.amount                       
                             if b:
                                 
                                 self.peer.balance += total      
                                 print("Received " + str(total) + " from " + message["name"] + ". Your balance is: " + str(self.peer.balance))
-
 
                         else:
                             print("block invalid, recomputing BC")
@@ -137,8 +130,7 @@ class neighborThread(threading.Thread):
                             self.peer.tally_dict[message["block"]] = []
                         
                         self.peer.tally_dict[message["block"]].append(message["name"])   # dictionary with last block has as key and list of peers as value
-
-                        
+     
                         # once 
                         self.peer.neighbor_count += 1
 
@@ -150,8 +142,7 @@ class neighborThread(threading.Thread):
                                 "name": self.peer.name
                             })
                         
-                            self.peer.send_to_peer(message["name"], new_message)
-                        
+                            self.peer.send_to_peer(message["name"], new_message)  
 
                     elif message["type"] == "send blockchain":
                         self.peer.send_to_peer(message["name"], pickle.dumps({
@@ -159,9 +150,7 @@ class neighborThread(threading.Thread):
                             "name": self.peer.name,
                             "blockchain": self.peer.blockchain
                         }))
- 
-
-                      
+         
                 except EOFError as error:
                     break
             
@@ -183,7 +172,6 @@ class inputThread(threading.Thread):
         self.peer = peer
 
     def run(self):
-
 
         print("Your balance is " + str(self.peer.balance))
 
@@ -223,19 +211,15 @@ class inputThread(threading.Thread):
 
                     self.peer.blockchain.create_trans("deposit", "private key", self.peer.name, amt)
 
-
                     self.peer.balance += amt
 
                     print("Your balance is now: " + str(self.peer.balance))
                     # print("To add additional transactions, request 'transfer'. Else, to send request 'mine'.")
                     print("To process transaction, enter 'mine'.")
-                
 
                 # withdraw money
                 if (request == "withdrawal"):
-
                     amt = input("How much would you like to withdraw? ")
-
                     
                     if not entry_valid(amt):
                         continue
@@ -255,7 +239,6 @@ class inputThread(threading.Thread):
                     # print("To add additional transactions, request 'transfer'. Else, to send request 'mine'.")
                     print("To process transaction, enter 'mine'.")
 
-
                 # transfer money
                 elif (request == "transfer"):
 
@@ -267,7 +250,6 @@ class inputThread(threading.Thread):
                         continue
 
                     recipient = check[0]
-
 
                     if not entry_valid(check[1]):
                         continue
@@ -289,12 +271,9 @@ class inputThread(threading.Thread):
 
                     self.peer.balance -= amt
 
-
                     print("Your balance is now: " + str(self.peer.balance))
 
-
                     print("To process transaction, enter 'mine'.")
-                
                 
                 # peer exiting
                 elif (request == "exit"):
@@ -303,11 +282,6 @@ class inputThread(threading.Thread):
                     print("Input thread exited")
             
                     exit()
-                        
-                    
-             
-
-
 
 # thread for processing messages sent by the tracker or neighbors (peers)
 class trackerThread(threading.Thread):
@@ -344,7 +318,6 @@ class trackerThread(threading.Thread):
                         port_num = input("Port number must be a number: ")
                     self.peer.peer_port = int(port_num)
                     self.peer.join_network()
-
 
             # successfully joined
             elif (message["type"] == "joined"):
@@ -419,7 +392,6 @@ class Peer:
 
         self.server_socket = self.createSocket()
         self.server_socket.listen()
-        
 
         # listen and accept connection requests from other peers (when first setting up network)
         while True:
@@ -439,11 +411,9 @@ class Peer:
                     self.blockchain.replace_chain_simple(blockchain._chain)
             
             except socket.timeout as e:
-            
                 # break if we are leaving the network
                 if (self.t_thread_exited == True):
                     break
- 
 
         # close all neighbor connection sockets and threads
         for nbr in self.neighbor_dict.values():
@@ -452,7 +422,6 @@ class Peer:
 
         # self.tracker_socket.close()
         self.server_socket.close()
-
 
     # creates the socket to communicate with tracker
     def create_tracker_socket(self):
@@ -469,7 +438,6 @@ class Peer:
 
     # adds a peer to the network
     def add_peer(self, name, neighbor_socket):
-
         n_thread = neighborThread(self, neighbor_socket)
         n_thread.start()
 
@@ -499,13 +467,10 @@ class Peer:
             "message": message
         }))
 
-
-
     # send a packet to peer
     def send_to_peer(self, peer, packet):
         peer_socket = self.neighbor_dict[peer].connection_socket
         peer_socket.send(packet)
-
 
     # broadcast a packet to peers
     def broadcast(self, packet):
@@ -527,8 +492,6 @@ class Peer:
         return (self.tally_dict[majority][0])
 
 
-
-
 # HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 def is_digit(input_str):
     return input_str.strip().isdigit()
@@ -542,7 +505,6 @@ def is_float(value):
 
 # returns whether entry is a number that's greater than 0
 def entry_valid(amt):
-
     if not is_float(amt):
         print("Error: not a number ")
         return False
