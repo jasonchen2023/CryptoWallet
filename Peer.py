@@ -134,9 +134,9 @@ class neighborThread(threading.Thread):
                         # enter the block hash into dictionary
                         if (message["block"] not in self.peer.tally_dict):
  
-                            self.peer.tally_dict["block"] = []
+                            self.peer.tally_dict[message["block"]] = []
                         
-                        self.peer.tally_dict["block"].append(message["name"])   # dictionary with last block has as key and list of peers as value
+                        self.peer.tally_dict[message["block"]].append(message["name"])   # dictionary with last block has as key and list of peers as value
 
                         
                         # once 
@@ -524,7 +524,7 @@ class Peer:
 
         print("last hash: ", majority)
         print(self.tally_dict)
-        return (self.tally_dict[last_hash][0])
+        return (self.tally_dict[majority][0])
 
 
 
