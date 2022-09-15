@@ -32,7 +32,6 @@ class Neighbor:
         self.connection_socket = connection_socket
         self.thread = n_thread
 
-
 # thread to receive packets from neighbors
 class neighborThread(threading.Thread):
 
@@ -79,7 +78,6 @@ class neighborThread(threading.Thread):
                         self.peer.blockchain.full_chain.append(new_block)
                         (valid, ind) = self.peer.blockchain.chain_validity(
                             self.peer.blockchain.full_chain)
-                        
 
                         # self.peer.blockchain.print_chain()
                         
@@ -92,8 +90,7 @@ class neighborThread(threading.Thread):
                                 if (t.receiver_addr == self.peer.name):
                                     b = True
                                     total += t.amount                       
-                            if b:
-                                
+                            if b:  
                                 self.peer.balance += total      
                                 print("Received " + str(total) + " from " + message["name"] + ". Your balance is: " + str(self.peer.balance))
 
@@ -101,11 +98,7 @@ class neighborThread(threading.Thread):
                             print("block invalid, recomputing BC")
                             self.peer.blockchain.recompute_chain_at_index(ind)
 
-                            # BC good, may need to broadcast to neighbors
-
-
                             # broadcast request for last block from all peers in network
-
                             self.peer.broadcast(pickle.dumps({
                                 "type": "last block request",
                                 "name": self.peer.name
@@ -113,7 +106,6 @@ class neighborThread(threading.Thread):
                     
                     # send hash last block to peer
                     elif message["type"] == "last block request":
-
                         new_message = pickle.dumps({
                             "type": "last block tally",
                             "name": self.peer.name,
@@ -126,7 +118,6 @@ class neighborThread(threading.Thread):
 
                         # enter the block hash into dictionary
                         if (message["block"] not in self.peer.tally_dict):
- 
                             self.peer.tally_dict[message["block"]] = []
                         
                         self.peer.tally_dict[message["block"]].append(message["name"])   # dictionary with last block has as key and list of peers as value
@@ -134,8 +125,7 @@ class neighborThread(threading.Thread):
                         # once 
                         self.peer.neighbor_count += 1
 
-                        if (self.peer.neighbor_count == len(self.peer.neighbor_dict.keys())):
-                            
+                        if (self.peer.neighbor_count == len(self.peer.neighbor_dict.keys())):   
                             majority_peer = self.peer.return_peer_in_majority()
                             new_message = pickle.dumps({
                                 "type": "send blockchain",
@@ -155,7 +145,6 @@ class neighborThread(threading.Thread):
                     break
             
             except socket.timeout as e:
-
                 pass
 
     def stop_thread(self):
@@ -176,9 +165,7 @@ class inputThread(threading.Thread):
         print("Your balance is " + str(self.peer.balance))
 
         while True:
-
             if (self.peer.valid_identity == True):
-
                 time.sleep(1.5)
                 request = input("What is your request? deposit / transfer / withdrawal / mine / exit: ")
 
@@ -187,7 +174,6 @@ class inputThread(threading.Thread):
 
                 # mine block
                 if (request == "mine"):
-
                     block = self.peer.blockchain.mine()
                     self.peer.broadcast(pickle.dumps({
                         "type": "block",
@@ -241,7 +227,6 @@ class inputThread(threading.Thread):
 
                 # transfer money
                 elif (request == "transfer"):
-
                     check = input("Please enter: [recipient] [amount] ")
                     
                     check = check.split()
@@ -263,7 +248,6 @@ class inputThread(threading.Thread):
                     # transfer amount greater than deposit
                     while (amt > self.peer.balance):
                         amt = float(input("Cannot transfer " + str(amt) + ". Your balance is " + str(self.peer.balance) + ". Enter a smaller amount: " )    )
-
                         if not entry_valid(amt):
                             continue
 
@@ -277,7 +261,6 @@ class inputThread(threading.Thread):
                 
                 # peer exiting
                 elif (request == "exit"):
-
                     self.peer.send_to_tracker("remove")
                     print("Input thread exited")
             
@@ -297,7 +280,6 @@ class trackerThread(threading.Thread):
         self.peer.join_network()
 
         while True:
-
             message = pickle.loads(self.peer.tracker_socket.recv(1024))
 
             # must change name or port
@@ -305,13 +287,11 @@ class trackerThread(threading.Thread):
 
                 # name invalid
                 if (message["field"] == "name"):
-     
                     self.peer.name = input("Enter a different name: ")
                     self.peer.join_network()
 
                 # port invalid
                 elif (message["field"] == "port"):
-
                     port_num = input("Enter a different port number: ")
 
                     while not is_digit(port_num):
@@ -325,7 +305,6 @@ class trackerThread(threading.Thread):
 
             # add a newly joined peer
             elif (message["type"] == "add"):
-
                 neighbor_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 neighbor_socket.connect(('127.0.0.1', int(message["port"])))  # message one = port number of peer
 
@@ -342,12 +321,10 @@ class trackerThread(threading.Thread):
 
                 # exit out of this thread if we are requesting to be removed
                 if (message["name"] == self.peer.name):
-
                     self.peer.t_thread_exited = True
 
                     print("Tracker thread exited")
                     exit()
-                    # break
 
                 # another peer leaving
                 neighbor = self.peer.neighbor_dict.get(message["name"], None)
@@ -364,7 +341,6 @@ class trackerThread(threading.Thread):
 
 
 class Peer:
-
     def __init__(self, name, peer_port, tracker_port):
         self.name = name
         self.valid_identity = False
@@ -395,9 +371,7 @@ class Peer:
 
         # listen and accept connection requests from other peers (when first setting up network)
         while True:
-
             try:
-            
                 self.server_socket.settimeout(10)
 
                 neighbor_socket, addr = self.server_socket.accept()
@@ -458,8 +432,6 @@ class Peer:
 
     # send a message to the tracker
     def send_to_tracker(self, message):
-
-        # format the message
         self.tracker_socket.send(
             pickle.dumps({
             "type": "remove",
@@ -482,6 +454,7 @@ class Peer:
     def return_peer_in_majority(self):
         maximum = 0
         majority = None
+        
         for last_hash in self.tally_dict.keys():
             if len(self.tally_dict[last_hash]) > maximum:
                 maximum = len(self.tally_dict[last_hash])
@@ -513,9 +486,7 @@ def entry_valid(amt):
     if (amt < 0):
         print("Error: Deposit amount negative ")
         return False
-
     return True
-
 
 if (is_digit(sys.argv[1]) and is_digit(sys.argv[3])):
     peer_port = int(sys.argv[1])  # Port to listen on (non-privileged ports are > 1023)
